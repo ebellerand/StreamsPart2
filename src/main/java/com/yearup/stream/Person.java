@@ -1,4 +1,4 @@
-package com.yearup;
+package com.yearup.stream;
 
 public class Person {
     private String firstName;
