@@ -1,8 +1,9 @@
-package com.yearup;
+package com.yearup.stream;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 
 public class Main {
@@ -13,13 +14,15 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String searchName = scanner.nextLine();
 
-        List<Person> matchingPeople = new ArrayList<>();
-        for (Person person : people) {
+        List<Person> matchingPeople = people.stream().filter(person -> person.getFirstName().equalsIgnoreCase(searchName)).collect(Collectors.toList());
+
+
+        /*for (Person person : people) {
             if (person.getFirstName().equalsIgnoreCase(searchName) ||
                     person.getLastName().equalsIgnoreCase(searchName)) {
                 matchingPeople.add(person);
             }
-        }
+        }*/
 
         System.out.println("People with matching name:");
         for (Person person : matchingPeople) {
